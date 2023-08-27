@@ -1,16 +1,23 @@
 package com.example.plugins
 
-import com.example.routes.authorized
-import com.example.routes.root
-import com.example.routes.tokenVerification
-import com.example.routes.unauthorized
+import com.example.domain.repository.UserDataSource
+import com.example.routes.*
 import io.ktor.server.application.Application
 import io.ktor.server.routing.*
+import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
+    val userDataSource: UserDataSource by inject<UserDataSource>()
     routing {
         root()
-        tokenVerification()
+        tokenVerification(application, userDataSource)
+
+        // CRUD
+        getUserInfo(application, userDataSource)
+        updateUserInfo(application, userDataSource)
+        deleteUserInfo(application, userDataSource)
+
+        signOut()
         authorized()
         unauthorized()
     }

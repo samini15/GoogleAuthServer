@@ -5,4 +5,6 @@ object Constants {
     const val ISSUER = "https://accounts.google.com"
 
     const val DATABASE_NAME = "google_auth_app_database"
+
+    const val AUTHENTICATION_SESSION_NAME = "auth_session"
 }

@@ -1,5 +1,7 @@
 package com.example.dependencyInjection
 
+import com.example.data.repository.UserDataSourceImpl
+import com.example.domain.repository.UserDataSource
 import com.example.utils.Constants
 import org.koin.dsl.module
 import org.litote.kmongo.coroutine.coroutine
@@ -10,5 +12,8 @@ val koinModule = module {
         KMongo.createClient()
             .coroutine
             .getDatabase(Constants.DATABASE_NAME)
+    }
+    single<UserDataSource> {
+        UserDataSourceImpl(get())
     }
 }
