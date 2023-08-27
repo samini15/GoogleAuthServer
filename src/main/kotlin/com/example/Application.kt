@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
+    configureKoin() // Must be called first
     configureAuth() // Must be placed before Routing
     configureSerialization()
     configureMonitoring()
