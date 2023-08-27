@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
 }
 
 fun Application.module() {
+    configureAuth() // Must be placed before Routing
     configureSerialization()
     configureMonitoring()
     //configureSecurity()

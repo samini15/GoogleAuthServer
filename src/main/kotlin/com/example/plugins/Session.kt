@@ -8,11 +8,11 @@ import java.io.File
 
 fun Application.configureSession() {
     install(Sessions) {
-        val secretEncryptKey = hex("00112233445566778899aabbccddeefzslf")
-        val secretAuthKey = hex("02030405060708090a0bdez0c")
+        val secretEncryptKey = hex("00112233445566778899aabbccddeeff")
+        val secretAuthKey = hex("02030405060708090a0b0c")
         cookie<UserSession>(name = "USER_SESSION", storage = directorySessionStorage(File(".sessions"))) {
             cookie.apply {
-                cookie.secure = true
+                //cookie.secure = true // With HTTPS
                 // Session Encryption
                 transform(SessionTransportTransformerEncrypt(secretEncryptKey, secretAuthKey))
             }
