@@ -7,4 +7,6 @@ object Constants {
     const val DATABASE_NAME = "google_auth_app_database"
 
     const val AUTHENTICATION_SESSION_NAME = "auth_session"
+
+    const val MONGODB_URI = "MONGODB_URI"
 }
